@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SpendScan
 
-## Getting Started
+SpendScan is a premium AI spend auditor designed for startups to optimize their AI tool stack and identify potential savings.
 
-First, run the development server:
+## Screenshots
+[Screenshots Placeholder]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Quick Start
+1. Clone the repository.
+2. Install dependencies: `npm install`.
+3. Set up environment variables in `.env.local`.
+4. Run the development server: `npm run dev`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Decisions (5 Trade-offs)
+1. **Next.js App Router**: Chosen for its robust routing and server-side capabilities, though it has a steeper learning curve than the Pages Router.
+2. **Tailwind CSS + shadcn/ui**: Used for rapid, consistent UI development while maintaining full control over styling.
+3. **Supabase**: Selected for its ease of use as a backend-as-a-service, providing database and lead storage without managing a full backend.
+4. **Anthropic API (Claude 3.5 Sonnet)**: Chosen for its high-quality AI summaries and financial analysis capabilities.
+5. **Vitest**: Used for testing due to its speed and compatibility with the Vite ecosystem, which aligns well with Next.js performance goals.
