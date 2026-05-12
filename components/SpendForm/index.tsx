@@ -60,11 +60,22 @@ export default function SpendForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const { slug } = await response.json();
-      localStorage.removeItem(STORAGE_KEY);
-      router.push(`/results/${slug}`);
-    } catch (error) {
-      console.error('Submit failed', error);
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to generate audit');
+      }
+
+      if (result.slug) {
+        localStorage.removeItem(STORAGE_KEY);
+        router.push(`/results/${result.slug}`);
+      } else {
+        throw new Error('No slug returned from server');
+      }
+    } catch (error: any) {
+      console.error('Submit failed:', error);
+      alert(error.message || 'Something went wrong. Please check your connection and try again.');
     }
   };
 

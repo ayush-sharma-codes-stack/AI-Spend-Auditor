@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 export async function POST(req: Request) {
   try {
     const input = await req.json();
+    console.log('Creating audit with input:', JSON.stringify(input));
     const results = runAudit(input);
     
     const totalSpend = input.tools.reduce((acc: any, t: any) => acc + t.monthlySpend, 0);
@@ -24,8 +25,12 @@ export async function POST(req: Request) {
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error('Supabase error:', error);
+      throw error;
+    }
 
+    console.log('Audit created successfully:', slug);
     return NextResponse.json({ slug });
   } catch (error: any) {
     console.error('Audit creation failed', error);
